@@ -1,2 +1,6 @@
-# DirectionsAPITest
-Testing URL Construction and Directions API Java-JSON Parser
+# Google Maps API Utilities
+
+The following repository hosts utilities such as a URL generator and JSON parser for the Google Maps API.
+
+It is used in the main Gedder Alarm Android application.
+
