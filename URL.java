@@ -1,12 +1,9 @@
 package com.example.mike.jsonparser;
 
 /**
- * Created by Mike on 3/4/2017.
- * class to generate url types
- * Origin, Destination, API Key
- * Arrival Time, Departure Time
- * Travel Mode
- * Avoid Tolls
+ * Authors: Mike, mslm
+ * Date: 3/4/2017
+ * Class to generate URLs for Google Maps API.
  */
 
 
@@ -14,9 +11,9 @@ package com.example.mike.jsonparser;
  * Example usage:
  *
  * public URL url = new URL.URLBuilder("origin", "destination", "apiKey") // required
- *                      .arrivalTime("arrivalTime")     // optional?
- *                      .departureTime("departureTime") // optional?
- *                      .mode("mode")                   // optional?
+ *                      .arrivalTime("arrivalTime")     // optional
+ *                      .departureTime("departureTime") // optional
+ *                      .mode("mode")                   // optional
  *                      .avoidToll()                    // optional
  *                      .avoidHighways()                // optional
  *                      .build(); // must call this to get back a URL
@@ -25,9 +22,9 @@ public class URL {
     private final String origin;            // required
     private final String destination;       // required
     private final String apiKey;            // required
-    private final String arrivalTime;       // optional?
-    private final String departureTime;     // optional?
-    private final String mode;              // optional?
+    private final String arrivalTime;       // optional
+    private final String departureTime;     // optional
+    private final String mode;              // optional
     private final boolean avoidToll;        // optional
     private final boolean avoidHighways;    // optional
     private final String baseUrl = "https://maps.googleapis.com/maps/api/directions/json?";
@@ -54,6 +51,9 @@ public class URL {
         addApiKey(apiKey);
     }
 
+    // Needs to abide by Google's naming rules.
+    // TODO: Figure out a way to abide by Google's naming rules
+    //       through possibly using a type other than String.
     private void addOrigin(String origin) {
         if (!origin.equals(null))
             this.url += "origin=" + origin;
@@ -61,6 +61,9 @@ public class URL {
             ; // TODO: Throw exception; this variable is required.
     }
 
+    // Needs to abide by Google's naming rules.
+    // TODO: Figure out a way to abide by Google's naming rules
+    //       through possibly using a type other than String.
     private void addDestination(String destination) {
         if (!destination.equals(null))
             this.url += "destination=" + destination;
@@ -81,6 +84,7 @@ public class URL {
             this.url += "arrival_time=" + aTime;
     }
 
+    // TODO: Need to add unix time
     private void addDepartureTime(String departureTime) {
         if (!departureTime.equals(null))
             this.url += "departure_time=" + departureTime;
@@ -141,23 +145,28 @@ public class URL {
         private final String origin;        // required
         private final String destination;   // required
         private final String apiKey;        // required
-        private String arrivalTime;         // optional?
-        private String departureTime;       // optional?
-        private String travelMode;          // optional?
+        private String arrivalTime;         // optional
+        private String departureTime;       // optional
+        private String travelMode;          // optional
         private boolean avoidToll;          // optional
         private boolean avoidHighways;      // optional
 
+        // Needs to abide by Google's naming rules.
+        // TODO: Figure out a way to abide by Google's naming rules
+        //       through possibly using a type other than String.
         public URLBuilder(String origin, String destination, String apiKey) {
             this.origin = origin;
             this.destination = destination;
             this.apiKey = apiKey;
         }
 
+        // TODO: Need to add unix time
         public URLBuilder arrivalTime(String arrivalTime) {
             this.arrivalTime = arrivalTime;
             return this;
         }
 
+        // TODO: Need to add unix time
         public URLBuilder departureTime(String departureTime) {
             this.departureTime = departureTime;
             return this;
