@@ -1,7 +1,7 @@
 package com.example.mike.jsonparser;
 
-/**
- * Authors: Mike, mslm
+/*
+ * USER: Mike, mslm
  * Date: 3/4/2017
  * Class to generate URLs for Google Maps API.
  */
@@ -13,7 +13,7 @@ package com.example.mike.jsonparser;
  * public URL url = new URL.URLBuilder("origin", "destination", "apiKey") // required
  *                      .arrivalTime("arrivalTime")     // optional
  *                      .departureTime("departureTime") // optional
- *                      .mode("mode")                   // optional
+ *                      .travelMode("travelMode")       // optional
  *                      .avoidToll()                    // optional
  *                      .avoidHighways()                // optional
  *                      .build(); // must call this to get back a URL
@@ -24,7 +24,7 @@ public class URL {
     private final String apiKey;            // required
     private final String arrivalTime;       // optional
     private final String departureTime;     // optional
-    private final String mode;              // optional
+    private final String travelMode;        // optional
     private final boolean avoidToll;        // optional
     private final boolean avoidHighways;    // optional
     private final String baseUrl = "https://maps.googleapis.com/maps/api/directions/json?";
@@ -55,7 +55,7 @@ public class URL {
     // TODO: Figure out a way to abide by Google's naming rules
     //       through possibly using a type other than String.
     private void addOrigin(String origin) {
-        if (!origin.equals(null))
+        if (origin != null)
             this.url += "origin=" + origin;
         else
             ; // TODO: Throw exception; this variable is required.
@@ -65,14 +65,14 @@ public class URL {
     // TODO: Figure out a way to abide by Google's naming rules
     //       through possibly using a type other than String.
     private void addDestination(String destination) {
-        if (!destination.equals(null))
+        if (destination != null)
             this.url += "destination=" + destination;
         else
             ; // TODO: Throw exception; this variable is required.
     }
 
-    private void addAPIKey(String apiKey) {
-        if (!apiKey.equals(null))
+    private void addApiKey(String apiKey) {
+        if (apiKey != null)
             this.url += "key=" + apiKey;
         else
             ; // TODO: Throw exception; this variable is required.
@@ -80,18 +80,18 @@ public class URL {
 
     // TODO: Need to add unix time
     private void addArrivalTime(String arrivalTime) {
-        if (!arrivalTime.equals(null))
-            this.url += "arrival_time=" + aTime;
+        if (arrivalTime != null)
+            this.url += "arrival_time=" + arrivalTime;
     }
 
     // TODO: Need to add unix time
     private void addDepartureTime(String departureTime) {
-        if (!departureTime.equals(null))
+        if (departureTime != null)
             this.url += "departure_time=" + departureTime;
     }
 
     private void addTravelMode(String travelMode) {
-        if (!travelMode.equals(null))
+        if (travelMode != null)
             this.url += "mode=" + travelMode;
     }
 
@@ -130,7 +130,7 @@ public class URL {
     }
 
     public String getTravelMode() {
-        return mode;
+        return travelMode;
     }
 
     public boolean avoidToll() {
