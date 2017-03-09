@@ -16,3 +16,18 @@ package com.gedder.gedderalarm.util;
  * private String origin = jsonParser.origin();
  * private String destination = jsonParser.destination();
  */
+public class JSONParser {
+    private String json;
+
+    public JSONParser(String json) {
+        this.json = json;
+    }
+
+    /**
+     * Grabs json['routes']['legs']['duration']['value'].
+     * return: duration of travel in seconds.
+     */
+    public int duration() {
+
+    }
+}
