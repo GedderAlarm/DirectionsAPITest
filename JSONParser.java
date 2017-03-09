@@ -6,6 +6,9 @@ package com.gedder.gedderalarm.util;
  * Class to parse the JSON received from Google Maps API.
  */
 
+import java.util.ArrayList;
+
+
 /**
  * Example usage:
  *
@@ -29,6 +32,10 @@ public class JSONParser {
      */
     public int duration() {
         // TODO: Implement.
+        // NOTE: If the route contains waypoints, there will be
+        //       multiple 'legs' and thus multiple 'duration' keys.
+        //       This must deal with that eventually.
+
     }
 
     /**
@@ -37,6 +44,23 @@ public class JSONParser {
      */
     public int distance() {
         // TODO: Implement.
+        // NOTE: If the route contains waypoints, there will be
+        //       multiple 'legs' and thus multiple 'distance' keys.
+        //       This must deal with that eventually.
+
+    }
+
+    /**
+     * Grabs json['routes']['warnings'] elements and puts them
+     * in a ArrayList of Strings.
+     * return: an ArrayList<String> object containing all warnings.
+     */
+    public ArrayList<String> warnings() {
+        // TODO: Implement.
+        // NOTE: Warnings will differ between routes. We need to
+        //       find a way to create our interface such that it'll
+        //       accomodate multiple routes.
+        
     }
 
 
