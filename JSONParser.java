@@ -152,6 +152,7 @@ public class JSONParser {
      */
     public String fareCurrency() {
         // TODO: Implement.
+
     }
 
     /**
@@ -162,6 +163,7 @@ public class JSONParser {
      */
     public String fareCurrency(int route) {
         // TODO: Implement.
+
     }
 
     /**
@@ -171,6 +173,7 @@ public class JSONParser {
      */
     public int fare() {
         // TODO: Implement.
+
     }
 
     /**
@@ -181,9 +184,60 @@ public class JSONParser {
      */
     public int fare(int route) {
         // TODO: Implement.
+
     }
 
+    /**
+     * Grabs json['status'].
+     *
+     * return: status number of the request, corresponding to
+     *         com.gedder.gedderalarm.util.JSONStatus enumerations.
+     */
+    public int status() {
+        // TODO: Implement.
+        String status;
+        int code;
 
+        //
+        // Parsing here. Put value into `status`.
+        //
+
+        switch (status) {
+            case "OK": 
+                code = JSONStatus.OK;
+                break;
+            case "NOT_FOUND":
+                code = JSONStatus.NOT_FOUND;
+                break;
+            case "ZERO_RESULTS":
+                code = JSONStatus.ZERO_RESULTS;
+                break;
+            case "MAX_WAYPOINTS_EXCEEDED":
+                code = JSONStatus.MAX_WAYPOINTS_EXCEEDED;
+                break;
+            case "MAX_ROUTE_LENGTH_EXCEEDED":
+                code = JSONStatus.MAX_ROUTE_LENGTH_EXCEEDED;
+                break;
+            case "INVALID_REQUEST":
+                code = JSONStatus.INVALID_REQUEST;
+                break;
+            case "OVER_QUERY_LIMIT":
+                code = JSONStatus.OVER_QUERY_LIMIT;
+                break;
+            case "REQUEST_DENIED":
+                code = JSONStatus.REQUEST_DENIED;
+                break;
+            default:
+                code = JSONStatus.UNKNOWN_ERROR;
+                break;
+        }
+
+        //
+        // Need to do more processing? Do it here.
+        //
+
+        return code;
+    }
 
 
 
