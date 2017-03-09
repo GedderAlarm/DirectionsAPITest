@@ -28,6 +28,16 @@ public class JSONParser {
      * return: duration of travel in seconds.
      */
     public int duration() {
-
+        // TODO: Implement.
     }
+
+    /**
+     * Grabs json['routes']['legs']['distance']['value'].
+     * return: distance of travel in meters.
+     */
+    public int distance() {
+        // TODO: Implement.
+    }
+
+
 }
