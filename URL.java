@@ -1,4 +1,4 @@
-package com.example.mike.jsonparser;
+package com.gedder.gedderalarm.util;
 
 /*
  * USER: Mike, mslm
