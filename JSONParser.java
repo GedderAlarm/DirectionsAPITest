@@ -30,7 +30,7 @@ public class JSONParser {
     }
 
     /**
-     * Grabs json['routes'][0]['legs']['duration']['value'].
+     * Grabs json['routes'][0]['legs'][0]['duration']['value'].
      *
      * return: duration of travel in seconds.
      */
@@ -43,7 +43,7 @@ public class JSONParser {
     }
 
     /**
-     * Grabs json['routes'][route-1]['legs']['duration']['value'].
+     * Grabs json['routes'][route-1]['legs'][0]['duration']['value'].
      *
      * param[0]: which route, if multiple. Starts from 1.
      * return: duration of travel in seconds.
@@ -61,7 +61,27 @@ public class JSONParser {
     }
 
     /**
-     * Grabs json['routes'][0]['legs']['distance']['value'].
+     * Grabs json['routes'][route-1]['legs'][leg-1]['duration']['value'].
+     *
+     * param[0]: which route, if multiple. Starts from 1.
+     * param[1]: which leg, if multiple. Starts from 1.
+     * return: duration of travel in seconds.
+     */
+    public int duration(int route, int leg) {
+        // TODO: Implement.
+        // NOTE: If the route contains waypoints, there will be
+        //       multiple 'legs' and thus multiple 'duration' keys.
+        //       This must deal with that eventually.
+        
+        // User expected to enter values starting from 1.
+        // We expect to use it starting from 0.
+        route -= 1;
+        leg -= 1;
+
+    }
+
+    /**
+     * Grabs json['routes'][0]['legs'][0]['distance']['value'].
      *
      * return: distance of travel in meters.
      */
@@ -74,7 +94,7 @@ public class JSONParser {
     }
 
     /**
-     * Grabs json['routes'][route-1]['legs']['distance']['value'].
+     * Grabs json['routes'][route-1]['legs'][0]['distance']['value'].
      *
      * param[0]: which route, if multiple. Starts from 1.
      * return: distance of travel in meters.
@@ -88,6 +108,26 @@ public class JSONParser {
         // User expected to enter values starting from 1.
         // We expect to use it starting from 0.
         route -= 1;
+
+    }
+
+    /**
+     * Grabs json['routes'][route-1]['legs'][leg-1]['distance']['value'].
+     *
+     * param[0]: which route, if multiple. Starts from 1.
+     * param[1]: which leg, if multiple. Starts from 1.
+     * return: distance of travel in meters.
+     */
+    public int distance(int route, int leg) {
+        // TODO: Implement.
+        // NOTE: If the route contains waypoints, there will be
+        //       multiple 'legs' and thus multiple 'distance' keys.
+        //       This must deal with that eventually.
+
+        // User expected to enter values starting from 1.
+        // We expect to use it starting from 0.
+        route -= 1;
+        leg -= 1;
 
     }
 
@@ -144,7 +184,7 @@ public class JSONParser {
     }
 
     /**
-     * Grabs json['routes'][0]['summary']
+     * Grabs json['routes'][0]['summary'].
      *
      * return: a String containing summary information for the route.
      */
@@ -154,7 +194,7 @@ public class JSONParser {
     }
 
     /**
-     * Grabs json['routes'][route-1]['summary']
+     * Grabs json['routes'][route-1]['summary'].
      *
      * param[0]: which route, if multiple. Starts from 1.
      * return: a String containing summary information for the route.
@@ -169,7 +209,7 @@ public class JSONParser {
     }
 
     /**
-     * Grabs json['routes'][0]['fare']['currency']
+     * Grabs json['routes'][0]['fare']['currency'].
      *
      * return: the ISO 4217 currency code that the fare is expressed in.
      */
@@ -179,7 +219,7 @@ public class JSONParser {
     }
 
     /**
-     * Grabs json['routes'][route-1]['fare']['currency']
+     * Grabs json['routes'][route-1]['fare']['currency'].
      *
      * param[0]: which route, if multiple. Starts from 1.
      * return: the ISO 4217 currency code that the fare is expressed in.
@@ -194,7 +234,7 @@ public class JSONParser {
     }
 
     /**
-     * Grabs json['routes'][0]['fare']['value']
+     * Grabs json['routes'][0]['fare']['value'].
      *
      * return: the total fare amount in the currency specified by fareCurrency().
      */
@@ -204,7 +244,7 @@ public class JSONParser {
     }
 
     /**
-     * Grabs json['routes'][route-1]['fare']['value']
+     * Grabs json['routes'][route-1]['fare']['value'].
      *
      * param[0]: which route, if multiple. Starts from 1.
      * return: the total fare amount in the currency specified by fareCurrency().
@@ -283,6 +323,8 @@ public class JSONParser {
     /**
      * Grabs json['available_travel_modes'].
      *
+     * note: only exists if a request specifies a travel mode and gets
+     *       no results.
      * return: an ArrayList<String> object containing all available
      *         travel modes.
      */
@@ -291,12 +333,49 @@ public class JSONParser {
 
     }
 
+    /**
+     * Grabs json['routes'][0]['legs'][0]['duration_in_traffic']['value'].
+     *
+     * note: only exists if the request specified a traffic model.
+     * return: duration in traffic in seconds.
+     */
+    public int durationInTraffic() {
+        // TODO: Implement.
+    }
 
+    /**
+     * Grabs json['routes'][route-1]['legs'][0]['duration_in_traffic']['value'].
+     *
+     * note: only exists if the request specified a traffic model.
+     * param[0]: which route, if multiple. Starts from 1.
+     * return: duration in traffic in seconds.
+     */
+    public int durationInTraffic(int route) {
+        // TODO: Implement.
 
+        // User expected to enter values starting from 1.
+        // We expect to use it starting from 0.
+        route -= 1;
 
+    }
 
+    /**
+     * Grabs json['routes'][route-1]['legs'][leg-1]['duration_in_traffic']['value'].
+     *
+     * note: only exists if the request specified a traffic model.
+     * param[0]: which route, if multiple. Starts from 1.
+     * param[1]: which leg, if multiple. Starts from 1.
+     * return: duration in traffic in seconds.
+     */
+    public int durationInTraffic(int route, int leg) {
+        // TODO: Implement.
 
+        // User expected to enter values starting from 1.
+        // We expect to use it starting from 0.
+        route -= 1;
+        leg -= 1;
 
+    }
 
 
 
