@@ -88,9 +88,6 @@ public class JSONParser {
      */
     public ArrayList<String> warnings() {
         // TODO: Implement.
-        // NOTE: Warnings will differ between routes. We need to
-        //       find a way to create our interface such that it'll
-        //       accomodate multiple routes.
 
     }
 
@@ -103,9 +100,6 @@ public class JSONParser {
      */
     public ArrayList<String> warnings(int route) {
         // TODO: Implement.
-        // NOTE: Warnings will differ between routes. We need to
-        //       find a way to create our interface such that it'll
-        //       accomodate multiple routes.
 
     }
 
@@ -129,4 +123,82 @@ public class JSONParser {
         // TODO: Implement.
 
     }
+
+    /**
+     * Grabs json['routes'][0]['summary']
+     *
+     * return: a String containing summary information for the route.
+     */
+    public String summary() {
+        // TODO: Implement.
+
+    }
+
+    /**
+     * Grabs json['routes'][route]['summary']
+     *
+     * param[0]: which route, if multiple.
+     * return: a String containing summary information for the route.
+     */
+    public String summary(int route) {
+        // TODO: Implement.
+
+    }
+
+    /**
+     * Grabs json['routes'][0]['fare']['currency']
+     *
+     * return: the ISO 4217 currency code that the fare is expressed in.
+     */
+    public String fareCurrency() {
+        // TODO: Implement.
+    }
+
+    /**
+     * Grabs json['routes'][route]['fare']['currency']
+     *
+     * param[0]: which route, if multiple
+     * return: the ISO 4217 currency code that the fare is expressed in.
+     */
+    public String fareCurrency(int route) {
+        // TODO: Implement.
+    }
+
+    /**
+     * Grabs json['routes'][0]['fare']['value']
+     *
+     * return: the total fare amount in the currency specified by fareCurrency().
+     */
+    public int fare() {
+        // TODO: Implement.
+    }
+
+    /**
+     * Grabs json['routes'][route]['fare']['value']
+     *
+     * param[0]: which route, if multiple.
+     * return: the total fare amount in the currency specified by fareCurrency().
+     */
+    public int fare(int route) {
+        // TODO: Implement.
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
