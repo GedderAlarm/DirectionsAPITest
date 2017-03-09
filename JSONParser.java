@@ -8,6 +8,8 @@ package com.gedder.gedderalarm.util;
 
 import java.util.ArrayList;
 
+import com.gedder.gedderalarm.util.JSONStatus;
+
 
 /**
  * Example usage:
@@ -15,9 +17,10 @@ import java.util.ArrayList;
  * public String json = "put json string here";
  * public JSONParser jsonParser = new JSONParser(json);
  * private int duration = jsonParser.duration();
- * private boolean avoidToll = jsonParser.avoidToll();
  * private String origin = jsonParser.origin();
  * private String destination = jsonParser.destination();
+ * private String route2_origin = jsonParser.origin(2);
+ * private String route2_destination = jsonParser.destination(2);
  */
 public class JSONParser {
     private String json;
@@ -40,9 +43,9 @@ public class JSONParser {
     }
 
     /**
-     * Grabs json['routes'][route]['legs']['duration']['value'].
+     * Grabs json['routes'][route-1]['legs']['duration']['value'].
      *
-     * param[0]: which route, if multiple.
+     * param[0]: which route, if multiple. Starts from 1.
      * return: duration of travel in seconds.
      */
     public int duration(int route) {
@@ -50,6 +53,10 @@ public class JSONParser {
         // NOTE: If the route contains waypoints, there will be
         //       multiple 'legs' and thus multiple 'duration' keys.
         //       This must deal with that eventually.
+        
+        // User expected to enter values starting from 1.
+        // We expect to use it starting from 0.
+        route -= 1;
 
     }
 
@@ -67,9 +74,9 @@ public class JSONParser {
     }
 
     /**
-     * Grabs json['routes'][route]['legs']['distance']['value'].
+     * Grabs json['routes'][route-1]['legs']['distance']['value'].
      *
-     * param[0]: which route, if multiple.
+     * param[0]: which route, if multiple. Starts from 1.
      * return: distance of travel in meters.
      */
     public int distance(int route) {
@@ -77,6 +84,10 @@ public class JSONParser {
         // NOTE: If the route contains waypoints, there will be
         //       multiple 'legs' and thus multiple 'distance' keys.
         //       This must deal with that eventually.
+
+        // User expected to enter values starting from 1.
+        // We expect to use it starting from 0.
+        route -= 1;
 
     }
 
@@ -92,14 +103,18 @@ public class JSONParser {
     }
 
     /**
-     * Grabs json['routes'][route]['warnings'] elements and puts them
+     * Grabs json['routes'][route-1]['warnings'] elements and puts them
      * in a ArrayList of Strings.
      *
-     * param[0]: which route, if multiple.
+     * param[0]: which route, if multiple. Starts from 1.
      * return: an ArrayList<String> object containing all warnings.
      */
     public ArrayList<String> warnings(int route) {
         // TODO: Implement.
+
+        // User expected to enter values starting from 1.
+        // We expect to use it starting from 0.
+        route -= 1;
 
     }
 
@@ -114,13 +129,17 @@ public class JSONParser {
     }
 
     /**
-     * Grabs json['routes'][route]['copyrights'].
+     * Grabs json['routes'][route-1]['copyrights'].
      *
-     * param[0]: which route, if multiple.
+     * param[0]: which route, if multiple. Starts from 1.
      * return: a String containing the copyright information.
      */
     public String copyrights(int route) {
         // TODO: Implement.
+
+        // User expected to enter values starting from 1.
+        // We expect to use it starting from 0.
+        route -= 1;
 
     }
 
@@ -135,13 +154,17 @@ public class JSONParser {
     }
 
     /**
-     * Grabs json['routes'][route]['summary']
+     * Grabs json['routes'][route-1]['summary']
      *
-     * param[0]: which route, if multiple.
+     * param[0]: which route, if multiple. Starts from 1.
      * return: a String containing summary information for the route.
      */
     public String summary(int route) {
         // TODO: Implement.
+
+        // User expected to enter values starting from 1.
+        // We expect to use it starting from 0.
+        route -= 1;
 
     }
 
@@ -156,13 +179,17 @@ public class JSONParser {
     }
 
     /**
-     * Grabs json['routes'][route]['fare']['currency']
+     * Grabs json['routes'][route-1]['fare']['currency']
      *
-     * param[0]: which route, if multiple
+     * param[0]: which route, if multiple. Starts from 1.
      * return: the ISO 4217 currency code that the fare is expressed in.
      */
     public String fareCurrency(int route) {
         // TODO: Implement.
+
+        // User expected to enter values starting from 1.
+        // We expect to use it starting from 0.
+        route -= 1;
 
     }
 
@@ -177,13 +204,17 @@ public class JSONParser {
     }
 
     /**
-     * Grabs json['routes'][route]['fare']['value']
+     * Grabs json['routes'][route-1]['fare']['value']
      *
-     * param[0]: which route, if multiple.
+     * param[0]: which route, if multiple. Starts from 1.
      * return: the total fare amount in the currency specified by fareCurrency().
      */
     public int fare(int route) {
         // TODO: Implement.
+
+        // User expected to enter values starting from 1.
+        // We expect to use it starting from 0.
+        route -= 1;
 
     }
 
@@ -194,12 +225,11 @@ public class JSONParser {
      *         com.gedder.gedderalarm.util.JSONStatus enumerations.
      */
     public int status() {
-        // TODO: Implement.
         String status;
         int code;
 
         //
-        // Parsing here. Put value into `status`.
+        // TODO: Parse here. Put value into `status`.
         //
 
         switch (status) {
@@ -239,8 +269,27 @@ public class JSONParser {
         return code;
     }
 
+    /**
+     * Grabs json['error_message'].
+     *
+     * note: only exists if json['status'] != "OK".
+     * return: error message string.
+     */
+    public String errorMessage() {
+        // TODO: Implement.
 
+    }
 
+    /**
+     * Grabs json['available_travel_modes'].
+     *
+     * return: an ArrayList<String> object containing all available
+     *         travel modes.
+     */
+    public ArrayList<String> availableTravelModes() {
+        // TODO: Implement.
+
+    }
 
 
 
