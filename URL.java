@@ -2,7 +2,7 @@ package com.gedder.gedderalarm.util;
 
 /*
  * USER: Mike, mslm
- * Date: 3/4/2017
+ * DATE: 3/4/2017
  * Class to generate URLs for Google Maps API.
  */
 
