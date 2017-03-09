@@ -23,6 +23,13 @@ import com.gedder.gedderalarm.util.JSONStatus;
  * private String route2_destination = jsonParser.destination(2);
  */
 public class JSONParser {
+    // For mslm:
+    // TODO: Add origin() and destination() functionality.
+    // TODO: Add originLatitude() and destinationLatitude() functionality.
+    // TODO: Add originLongitude() and destinationLongitude() functionality.
+    // TODO: Add choose-your-step functionality for everything that is in the `steps` key.
+    // TODO: Add travelMode() functionality for individual steps.
+
     private String json;
 
     public JSONParser(String json) {
