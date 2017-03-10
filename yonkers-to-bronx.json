@@ -1,0 +1,494 @@
+// MY_KEY: AIzaSyBoo4253wJW0JsshAK90xv8yGnlasVApLw
+// https://maps.googleapis.com/maps/api/directions/json?origin=Yonkers,NY&destination=Bronx,NY&key=MY_KEY
+
+{
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJoa9DCQjAwokRotrYpIRzlr4",
+         "types" : [ "locality", "political" ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJsXxpOlWLwokRd1zxj6dDblU",
+         "types" : [ "political", "sublocality", "sublocality_level_1" ]
+      }
+   ],
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 40.935856,
+               "lng" : -73.8417379
+            },
+            "southwest" : {
+               "lat" : 40.8439639,
+               "lng" : -73.89896139999999
+            }
+         },
+         "copyrights" : "Map data ©2017 Google",
+         "legs" : [
+            {
+               "distance" : {
+                  "text" : "10.4 mi",
+                  "value" : 16711
+               },
+               "duration" : {
+                  "text" : "23 mins",
+                  "value" : 1354
+               },
+               "end_address" : "Bronx, NY, USA",
+               "end_location" : {
+                  "lat" : 40.8447535,
+                  "lng" : -73.86496289999999
+               },
+               "start_address" : "Yonkers, NY, USA",
+               "start_location" : {
+                  "lat" : 40.9312599,
+                  "lng" : -73.89862959999999
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "203 ft",
+                        "value" : 62
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 17
+                     },
+                     "end_location" : {
+                        "lat" : 40.9317547,
+                        "lng" : -73.89896139999999
+                     },
+                     "html_instructions" : "Head \u003cb\u003enorthwest\u003c/b\u003e on \u003cb\u003eS Broadway\u003c/b\u003e toward \u003cb\u003eProspect St\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "kkyxFli`bMID_Aj@WN"
+                     },
+                     "start_location" : {
+                        "lat" : 40.9312599,
+                        "lng" : -73.89862959999999
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.5 mi",
+                        "value" : 782
+                     },
+                     "duration" : {
+                        "text" : "2 mins",
+                        "value" : 129
+                     },
+                     "end_location" : {
+                        "lat" : 40.9350696,
+                        "lng" : -73.8917014
+                     },
+                     "html_instructions" : "Sharp \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eNepperhan Ave\u003c/b\u003e",
+                     "maneuver" : "turn-sharp-right",
+                     "polyline" : {
+                        "points" : "mnyxFnk`bMh@wDD]@SBU?Q?U?MAYASEi@Ig@Ii@EQo@eB[u@c@_AMSs@sAOUYm@Yq@MYK]i@wAOc@Ug@g@_A[e@[c@c@e@c@[c@WWMWM[Kq@W"
+                     },
+                     "start_location" : {
+                        "lat" : 40.9317547,
+                        "lng" : -73.89896139999999
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "1.2 mi",
+                        "value" : 1964
+                     },
+                     "duration" : {
+                        "text" : "4 mins",
+                        "value" : 220
+                     },
+                     "end_location" : {
+                        "lat" : 40.9319056,
+                        "lng" : -73.8708125
+                     },
+                     "html_instructions" : "Slight \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eNew York State Reference Route 983C\u003c/b\u003e/\u003cb\u003eYonkers Ave\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eContinue to follow Yonkers Ave\u003c/div\u003e",
+                     "maneuver" : "turn-slight-right",
+                     "polyline" : {
+                        "points" : "eczxFb~~aMS]MO[UMMKMU]GIIOO]EUE[AW?Y@KBQBQDWDWViAFU@K?C?C?OJc@DYH_@BQD[D]BYB[@O?M@_@?cBAo@Ao@CoBCoBCyBC}AAu@EqCHWAi@@I?UBm@JiABQD[NaBB_@VsCN_BFg@NcAFc@DQDWJe@J]L_@J[JWR_@HQj@_AlBmCDMDSFMDKFQFYDYBS@MBWFe@B_@@Q@U?W?[?k@Ae@?{@AoAAeAAcBA_ACi@Cy@Ce@Cs@Dq@Do@F_@DSDODKDMHODGDGDGVULKLENE\\Ir@Mp@O"
+                     },
+                     "start_location" : {
+                        "lat" : 40.9350696,
+                        "lng" : -73.8917014
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.3 mi",
+                        "value" : 404
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 33
+                     },
+                     "end_location" : {
+                        "lat" : 40.9331333,
+                        "lng" : -73.8694004
+                     },
+                     "html_instructions" : "Sharp \u003cb\u003eright\u003c/b\u003e onto the \u003cb\u003eCross Country Pkwy\u003c/b\u003e ramp",
+                     "polyline" : {
+                        "points" : "moyxFp{zaMBB@@@?@@@?@?@@B?B?@?B?B?F?F@B?B@B@B@B@DBBBBBDHBD@FBD@D?@@B?D@B?RARAHAJEHCFCBCDEDGDGBIBG@E?E?IAIEIEGGGIGMUm@iAwCcBgEKUCCGG"
+                     },
+                     "start_location" : {
+                        "lat" : 40.9319056,
+                        "lng" : -73.8708125
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.4 mi",
+                        "value" : 638
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 29
+                     },
+                     "end_location" : {
+                        "lat" : 40.9336362,
+                        "lng" : -73.862769
+                     },
+                     "html_instructions" : "Merge onto \u003cb\u003eCross County Pkwy\u003c/b\u003e/\u003cb\u003eNew York State Reference Rte 907K\u003c/b\u003e",
+                     "maneuver" : "merge",
+                     "polyline" : {
+                        "points" : "awyxFvrzaM{DuJq@gBOg@I[Kk@Mu@Gs@AUASAQ?[?]@c@@]?GDa@B_@D[F]FWDQBIFWJYTo@LWj@_Av@kA"
+                     },
+                     "start_location" : {
+                        "lat" : 40.9331333,
+                        "lng" : -73.8694004
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.3 mi",
+                        "value" : 406
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 18
+                     },
+                     "end_location" : {
+                        "lat" : 40.9318275,
+                        "lng" : -73.8587661
+                     },
+                     "html_instructions" : "Take exit \u003cb\u003e4 S-5-6-7\u003c/b\u003e for \u003cb\u003eKimball Ave\u003c/b\u003e/\u003cb\u003eW Broad St\u003c/b\u003e",
+                     "maneuver" : "ramp-right",
+                     "polyline" : {
+                        "points" : "gzyxFhiyaMB@@?D@@?@A@?BA@ABC@Az@kARW\\k@Zi@LWTm@L[Pk@Ja@FWPy@Lw@TqARmA^cC"
+                     },
+                     "start_location" : {
+                        "lat" : 40.9336362,
+                        "lng" : -73.862769
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.4 mi",
+                        "value" : 658
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 30
+                     },
+                     "end_location" : {
+                        "lat" : 40.929817,
+                        "lng" : -73.8514313
+                     },
+                     "html_instructions" : "Keep \u003cb\u003eleft\u003c/b\u003e to continue on \u003cb\u003eExit 5\u003c/b\u003e, follow signs for \u003cb\u003eKimball Avenue\u003c/b\u003e/\u003cb\u003eMidland Avenue\u003c/b\u003e",
+                     "maneuver" : "keep-left",
+                     "polyline" : {
+                        "points" : "}nyxFhpxaMPcAD[FYDWJ_@He@XkAPu@Jc@H_@@AJc@?AJc@Pi@\\qAH_@?A@A?A^eB@C?A?Cd@sBRsANkARkBH]r@aH"
+                     },
+                     "start_location" : {
+                        "lat" : 40.9318275,
+                        "lng" : -73.8587661
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.5 mi",
+                        "value" : 759
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 34
+                     },
+                     "end_location" : {
+                        "lat" : 40.9284759,
+                        "lng" : -73.8425819
+                     },
+                     "html_instructions" : "Keep \u003cb\u003eleft\u003c/b\u003e to continue toward \u003cb\u003eBronx River Pkwy\u003c/b\u003e",
+                     "maneuver" : "keep-left",
+                     "polyline" : {
+                        "points" : "kbyxFlbwaM?WFs@NyB`@uHBc@@[B[@C?ADk@bCoY\\wCNaAF[DY"
+                     },
+                     "start_location" : {
+                        "lat" : 40.929817,
+                        "lng" : -73.8514313
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.2 mi",
+                        "value" : 277
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 19
+                     },
+                     "end_location" : {
+                        "lat" : 40.926431,
+                        "lng" : -73.8424265
+                     },
+                     "html_instructions" : "Keep \u003cb\u003eright\u003c/b\u003e at the fork to continue on \u003cb\u003eExit 6\u003c/b\u003e, follow signs for \u003cb\u003eBronx River Pkwy\u003c/b\u003e/\u003cb\u003eSprain Brook Pkwy\u003c/b\u003e",
+                     "maneuver" : "fork-right",
+                     "polyline" : {
+                        "points" : "_zxxFbkuaMHO@C?CFUBOBMHUBIDIBGBEBCFGDEDEFAFCHCBAD?H?F?F?F@NFNFJHZP^VXPLHPHRFPFNBNBZD"
+                     },
+                     "start_location" : {
+                        "lat" : 40.9284759,
+                        "lng" : -73.8425819
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "5.3 mi",
+                        "value" : 8480
+                     },
+                     "duration" : {
+                        "text" : "6 mins",
+                        "value" : 351
+                     },
+                     "end_location" : {
+                        "lat" : 40.855868,
+                        "lng" : -73.8723949
+                     },
+                     "html_instructions" : "Keep \u003cb\u003eright\u003c/b\u003e at the fork, follow signs for \u003cb\u003eBronx Pkwy S\u003c/b\u003e and merge onto \u003cb\u003eBronx River Pkwy\u003c/b\u003e",
+                     "maneuver" : "fork-right",
+                     "polyline" : {
+                        "points" : "emxxFdjuaMbAPf@HpA\\`@RZNj@^t@l@b@d@b@d@TTDFBBDDDBDBB@LFxB`Df@n@\\^|@|@p@l@PNJHJHRJbAb@x@X~@X`ATp@NnATn@JnAZtA^jBh@XJTJ|@b@j@XhAj@h@Xj@ZJFNJXTXRf@ZfBfAdCdBB@`ErCn@h@B@@@~B~ArMtJnBfBHJ`AfAt@~@~BzCl@n@bA|@l@`@ZPb@Rf@Pt@PLBXDt@Px@TH@DBD@hAj@n@Xb@TjBdA`Al@VRj@b@NLx@p@XXfEbEnApAfBxAfA~@p@h@bAp@zAz@@@LFDBB@p@Vt@XzAZ`AHfADTARALA@?FAPCXEVGXGRGhDw@x@K\\AZAV@^D`@D\\HRFVJ^NVLz@h@|@j@ZVb@^XXhFvFn@l@z@t@p@h@h@Z\\Rp@\\^PXNZLn@TxJlDxAh@tAd@rNvEhHzB`PrElA^VFjFtAnJfCpInBvBh@|Bf@d@JtAXJBhAT~AXxAT~@Nt@Jp@JpAPbAJdALfCRvAJh@Df@BV@t@@^@b@@T?f@@~@?H?z@An@Ad@An@C`AGt@EpAI^E^CD?@AH?BA@?JAB?@?NATA^C`AEn@C|AC`@?V@|A@fDNRBxDVhAFP@x@FpBLrCNzF`@@?z@Dn@Bj@@|@Af@AH?RATAtAOZEf@IXEBAfAQ"
+                     },
+                     "start_location" : {
+                        "lat" : 40.926431,
+                        "lng" : -73.8424265
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.3 mi",
+                        "value" : 552
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 70
+                     },
+                     "end_location" : {
+                        "lat" : 40.856701,
+                        "lng" : -73.8693195
+                     },
+                     "html_instructions" : "Take exit \u003cb\u003e7E\u003c/b\u003e to merge onto \u003cb\u003ePelham Pkwy S\u003c/b\u003e",
+                     "maneuver" : "ramp-right",
+                     "polyline" : {
+                        "points" : "etjxFle{aMr@FB?B@F@DBFBFFDDDF@BBDBFBJ@FBH?L?J?JAJCLCJEHEFEFGFGDIDIBI@K?MAICGECAAAGICCCECEAGCEAEQ_@YgBG[UuAQcAQ_ACQGa@EUCSAI?IAGAI?KAMAG?I?OAO?G?EBw@BmB"
+                     },
+                     "start_location" : {
+                        "lat" : 40.855868,
+                        "lng" : -73.8723949
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "367 ft",
+                        "value" : 112
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 25
+                     },
+                     "end_location" : {
+                        "lat" : 40.8558174,
+                        "lng" : -73.86992409999999
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eBoston Rd\u003c/b\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "kyjxFfrzaMLHLH|AhAPNDBB@B@B@@?@?B?H?"
+                     },
+                     "start_location" : {
+                        "lat" : 40.856701,
+                        "lng" : -73.8693195
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.3 mi",
+                        "value" : 428
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 76
+                     },
+                     "end_location" : {
+                        "lat" : 40.8521018,
+                        "lng" : -73.8686057
+                     },
+                     "html_instructions" : "Continue onto \u003cb\u003eBronx Park E\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "{sjxF~uzaMF?DAJC\\ILE|EoARGrBg@pCs@|@WLCZI`AU"
+                     },
+                     "start_location" : {
+                        "lat" : 40.8558174,
+                        "lng" : -73.86992409999999
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.2 mi",
+                        "value" : 285
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 61
+                     },
+                     "end_location" : {
+                        "lat" : 40.850472,
+                        "lng" : -73.8659931
+                     },
+                     "html_instructions" : "Slight \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003eBronxdale Ave\u003c/b\u003e",
+                     "maneuver" : "turn-slight-left",
+                     "polyline" : {
+                        "points" : "s|ixFxmzaMfBaD~BgEpAeCJ["
+                     },
+                     "start_location" : {
+                        "lat" : 40.8521018,
+                        "lng" : -73.8686057
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "331 ft",
+                        "value" : 101
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 18
+                     },
+                     "end_location" : {
+                        "lat" : 40.84966259999999,
+                        "lng" : -73.8658069
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eHunt Ave\u003c/b\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "mrixFl}yaMD@FABADCDE@ENYDGDCBAD?D@J@hAP"
+                     },
+                     "start_location" : {
+                        "lat" : 40.850472,
+                        "lng" : -73.8659931
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.4 mi",
+                        "value" : 636
+                     },
+                     "duration" : {
+                        "text" : "3 mins",
+                        "value" : 168
+                     },
+                     "end_location" : {
+                        "lat" : 40.8441479,
+                        "lng" : -73.86380389999999
+                     },
+                     "html_instructions" : "Slight \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003eHolland Ave\u003c/b\u003e",
+                     "maneuver" : "turn-slight-left",
+                     "polyline" : {
+                        "points" : "kmixFh|yaM`@MrI{BnGcBbCm@^KbHiB"
+                     },
+                     "start_location" : {
+                        "lat" : 40.84966259999999,
+                        "lng" : -73.8658069
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "249 ft",
+                        "value" : 76
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 24
+                     },
+                     "end_location" : {
+                        "lat" : 40.8439639,
+                        "lng" : -73.8646749
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e at the 3rd cross street onto \u003cb\u003eVan Nest Ave\u003c/b\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "}jhxFvoyaMd@lD"
+                     },
+                     "start_location" : {
+                        "lat" : 40.8441479,
+                        "lng" : -73.86380389999999
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "299 ft",
+                        "value" : 91
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 32
+                     },
+                     "end_location" : {
+                        "lat" : 40.8447535,
+                        "lng" : -73.86496289999999
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e at the 1st cross street onto \u003cb\u003eHunt Ave\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the right\u003c/div\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "wihxFduyaM}Cx@"
+                     },
+                     "start_location" : {
+                        "lat" : 40.8439639,
+                        "lng" : -73.8646749
+                     },
+                     "travel_mode" : "DRIVING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "kkyxFli`bMiAp@WNh@wDFq@Bg@CqAOqAO{@kA{Cq@sAcAiBs@_BsAsD}@gBw@iAc@e@c@[{@e@s@Yq@WS]i@e@Y[]g@Ym@Kq@Aq@NgAf@cC?G?OJc@Ny@Hm@NcB@m@AsCMiKEsCEqCHW?s@BcAd@yEr@{Hb@qCVcAX{@^w@t@qArB{CLa@L]Ls@P_BF_BAiDGyHO}DJaBLs@Zy@JO\\]ZQl@OdB]DDF@b@BNDPLN\\BP@VC\\O`@IJOH]DSGQMOW_BeEoB}EKKmF}MYcAYaBIiAC_BHkBH{@Nu@\\mAb@gAbBkCLBHEtAiBx@uAb@eAj@iB|@{EjAqHb@wBnAkFfAeE`@kB?Ed@sBRsAb@wDH]r@aH?WFs@p@oLJ_BhC}Zl@yELu@Rm@T}@P[ZUZI`@@fAj@xA|@dAV~AVxBf@|@b@`BlAbBhBTPPH`DpEzA|AbA|@VRvAn@xBr@rBd@~B`@dDz@dCt@rAn@tBdAtAt@nA|@nCbBhCfBtF~D`C`BrMtJnBfBjArAtDzEpBlBhAr@jAd@bATrCn@JDxBdAnCzAxA`Az@p@rAjAvGtGnDxCtBzA|A|@hAd@t@XzAZhCNv@Et@KnFoAvAMr@?`AJp@Pv@ZrAv@xAbA|@x@xGdHlB~AxC~At@\\hLbEnDnA|WrInRrFbG|AnJfCpInBtFpApE~@nHjAlGv@pHh@pCFfC@`EIvBMpBOp@E|@G`BIlCGx@@|A@fDNlEZzAHzPfA|@DzADbCEjBQbAO\\GfAQr@FF@LDZXL\\Dj@AVGXKPMNQJSDYAQIQQMYSe@a@cC}@kFSuACg@Co@@uABmBLHjBrA^VJ@b@E|GgBpIwB|A_@fFiJpAeCJ[L?HEFKTa@HE`BThW{GbIuBd@lD}Cx@"
+         },
+         "summary" : "Bronx River Pkwy",
+         "warnings" : [],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
+}

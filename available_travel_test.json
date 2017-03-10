@@ -1,0 +1,19 @@
+{
+   "available_travel_modes" : [ "DRIVING", "BICYCLING", "WALKING" ],
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "partial_match" : true,
+         "place_id" : "ChIJwZNMti1fawwRO2aVVVX2yKg",
+         "types" : [ "locality", "political" ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "partial_match" : true,
+         "place_id" : "ChIJ3aPgQGtXawwRLYeiBMUi7bM",
+         "types" : [ "locality", "political" ]
+      }
+   ],
+   "routes" : [],
+   "status" : "ZERO_RESULTS"
+}
