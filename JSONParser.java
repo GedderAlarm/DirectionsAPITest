@@ -1,17 +1,18 @@
 package com.gedder.gedderalarm.util;
 
-/*
- * USER: mslm, Mike
- * DATE: March 8th, 2017
- * Class to parse the JSON received from Google Maps API.
- */
-
 import java.util.ArrayList;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.gedder.gedderalarm.util.JSONStatus;
+
+/*
+ * USER: mslm, Mike
+ * DATE: March 8th, 2017
+ * Class to parse the JSON received from Google Maps API.
+ */
 
 
 /**
@@ -45,21 +46,15 @@ public class JSONParser {
      * return: duration of travel in seconds.
      */
     public int duration() {
-        // TODO: Test
-        // NOTE: If the route contains waypoints, there will be
-        //       multiple 'legs' and thus multiple 'duration' keys.
-        //       This must deal with that eventually.
+        // TODO: Test.
+
         JSONObject obj = new JSONObject(json);
         JSONArray routes = obj.getJSONArray("route");
         JSONObject route_number = routes.get(0);
         JSONArray legs = route_number.getJSONArray("legs");
         JSONObject leg_number = legs.get(0);
         JSONObject dur = leg_number.getJsonObject("duration");
-        return dur.getInt("value")/60;
-
-        //String duration = dur.getString("text");
-            // We can return string of "XX Mins"
-            // Or an Int of Time in seconds/60 for minutes, rounded up(?).\
+        return dur.getInt("value");
     }
 
     /**
@@ -69,11 +64,7 @@ public class JSONParser {
      * return: duration of travel in seconds.
      */
     public int duration(int route) {
-        // TODO: Test
-        // NOTE: If the route contains waypoints, there will be
-        //       multiple 'legs' and thus multiple 'duration' keys.
-        //       This must deal with that eventually.
-        //       Does not do this currently.
+        // TODO: Test.
         
         // User expected to enter values starting from 1.
         // We expect to use it starting from 0.
@@ -84,8 +75,7 @@ public class JSONParser {
         JSONArray legs = route_number.getJSONArray("legs");
         JSONObject leg_number = legs.get(0);
         JSONObject dur = leg_number.getJsonObject("duration");
-        return dur.getInt("value")/60;
-
+        return dur.getInt("value");
     }
 
     /**
@@ -96,11 +86,7 @@ public class JSONParser {
      * return: duration of travel in seconds.
      */
     public int duration(int route, int leg) {
-        // TODO: Test
-        // NOTE: If the route contains waypoints, there will be
-        //       multiple 'legs' and thus multiple 'duration' keys.
-        //       This must deal with that eventually.
-        //       Does not do this currently.
+        // TODO: Test.
         
         // User expected to enter values starting from 1.
         // We expect to use it starting from 0.
@@ -112,8 +98,7 @@ public class JSONParser {
         JSONArray legs = route_number.getJSONArray("legs");
         JSONObject leg_number = legs.get(leg);
         JSONObject dur = leg_number.getJsonObject("duration");
-        return dur.getInt("value")/60;
-
+        return dur.getInt("value");
     }
 
     /**
@@ -122,11 +107,8 @@ public class JSONParser {
      * return: distance of travel in meters.
      */
     public int distance() {
-        // TODO: Test
-        // NOTE: If the route contains waypoints, there will be
-        //       multiple 'legs' and thus multiple 'distance' keys.
-        //       This must deal with that eventually.
-        //       Does not do this currently.
+        // TODO: Test.
+
         JSONObject obj = new JSONObject(json);
         JSONArray routes = obj.getJSONArray("route");
         JSONObject route_number = routes.get(0);
@@ -134,7 +116,6 @@ public class JSONParser {
         JSONObject leg_number = legs.get(0);
         String distance = leg_number.getString("value");
         return getMiles(distance);
-
     }
 
     /**
@@ -144,11 +125,7 @@ public class JSONParser {
      * return: distance of travel in meters.
      */
     public int distance(int route) {
-        // TODO: Test
-        // NOTE: If the route contains waypoints, there will be
-        //       multiple 'legs' and thus multiple 'distance' keys.
-        //       This must deal with that eventually.
-        //       Does not do this currently.
+        // TODO: Test.
 
         // User expected to enter values starting from 1.
         // We expect to use it starting from 0.
@@ -160,7 +137,6 @@ public class JSONParser {
         JSONObject leg_number = legs.get(0);
         String distance = leg_number.getString("value");
         return getMiles(distance);
-
     }
 
     /**
@@ -171,11 +147,7 @@ public class JSONParser {
      * return: distance of travel in meters.
      */
     public int distance(int route, int leg) {
-        // TODO: Implement.
-        // NOTE: If the route contains waypoints, there will be
-        //       multiple 'legs' and thus multiple 'distance' keys.
-        //       This must deal with that eventually.
-        //       Does not do this currently.
+        // TODO: Test.
 
         // User expected to enter values starting from 1.
         // We expect to use it starting from 0.
@@ -188,7 +160,6 @@ public class JSONParser {
         JSONObject leg_number = legs.get(leg);
         String distance = leg_number.getString("value");
         return getMiles(distance);
-
     }
 
     /**
@@ -199,17 +170,15 @@ public class JSONParser {
      */
     public ArrayList<String> warnings() {
         // TODO: Test
+
         JSONObject obj = new JSONObject(json);
         JSONArray routes = obj.getJSONArray("route");
         JSONObject route_number = routes.get(0);
         JSONArray warns = route_number.getJSONArray("warnings");
         ArrayList<String> warnings;
-        for (int i = 0; i < warns.length(); i++ )
-        {
+        for (int i = 0; i < warns.length(); i++)
             warnings.add(routes[i]);
-        }
         return warnings;
-
     }
 
     /**
@@ -230,12 +199,9 @@ public class JSONParser {
         JSONObject route_number = routes.get(route);
         JSONArray warns = route_number.getJSONArray("warnings");
         ArrayList<String> warnings;
-        for (int i = 0; i < warns.length(); i++ )
-        {
+        for (int i = 0; i < warns.length(); i++)
             warnings.add(routes[i]);
-        }
         return warnings;
-
     }
 
     /**
@@ -244,13 +210,12 @@ public class JSONParser {
      * return: a String containing the copyright information.
      */
     public String copyrights() {
+        // TODO: Test
+
         JSONObject obj = new JSONObject(json);
         JSONArray routes = obj.getJSONArray("route");
         JSONObject route_number = routes.get(0);
         return route_number.getString("copyright");
-
-        // TODO: Test
-
     }
 
     /**
@@ -269,7 +234,6 @@ public class JSONParser {
         JSONArray routes = obj.getJSONArray("route");
         JSONObject route_number = routes.get(route);
         return route_number.getString("copyright");
-
     }
 
     /**
@@ -279,6 +243,7 @@ public class JSONParser {
      */
     public String summary() {
         // TODO: Test
+
         JSONObject obj = new JSONObject(json);
         JSONArray routes = obj.getJSONArray("route");
         JSONObject route_number = routes.get(0);
@@ -303,7 +268,6 @@ public class JSONParser {
         JSONObject route_number = routes.get(route);
         String summary = route_number.getString("summary");
         return summary;
-
     }
 
     /**
@@ -313,14 +277,13 @@ public class JSONParser {
      */
     public String fareCurrency() {
         // TODO: Implement.
+
         JSONObject obj = new JSONObject(json);
         JSONArray routes = obj.getJSONArray("route");
         JSONObject route_number = routes.get(0);
         JSONObject fare = route_number.getJsonObject("fare");
         String currency = fare.getString("currency");
         return currency;
-
-
     }
 
     /**
@@ -341,7 +304,6 @@ public class JSONParser {
         JSONObject fare = route_number.getJsonObject("fare");
         String currency = fare.getString("currency");
         return currency;
-
     }
 
     /**
@@ -351,6 +313,7 @@ public class JSONParser {
      */
     public int fare() {
         // TODO: Test
+
         JSONObject obj = new JSONObject(json);
         JSONArray routes = obj.getJSONArray("route");
         JSONObject route_number = routes.get(0);
@@ -377,7 +340,6 @@ public class JSONParser {
         JSONObject f = route_number.getJsonObject("fare");
         int fare = f.getInt("value");
         return fare;
-
     }
 
     /**
@@ -387,9 +349,6 @@ public class JSONParser {
      *         com.gedder.gedderalarm.util.JSONStatus enumerations.
      */
     public int status() {
-        //
-        // TODO: Parse here. Put value into `status`.
-        //
         int code;
         JSONObject obj = new JSONObject(json);
         String status = obj.getString("status");
@@ -424,10 +383,6 @@ public class JSONParser {
                 break;
         }
 
-        //
-        // Need to do more processing? Do it here.
-        //
-
         return code;
     }
 
@@ -441,7 +396,6 @@ public class JSONParser {
         JSONObject obj = new JSONObject(json);
         String error = obj.getString("error_message");
         return error;
-
     }
 
     /**
@@ -454,15 +408,13 @@ public class JSONParser {
      */
     public ArrayList<String> availableTravelModes() {
         // TODO: Implement.
+
         JSONObject obj = new JSONObject(json);
         JSONArray travel_modes = obj.getJSONArray("available_travel_modes");
         ArrayList<String> modes;
         for (int i = 0; i < travel_modes.length(); i++)
-        {
             modes.add(travel_modes[i]);
-        }
         return modes;
-
     }
 
     /**
@@ -473,6 +425,7 @@ public class JSONParser {
      */
     public int durationInTraffic() {
         // TODO: Implement.
+
         JSONObject obj = new JSONObject(json);
         JSONArray routes = obj.getJSONArray("route");
         JSONObject route_number = routes.get(0);
@@ -480,8 +433,6 @@ public class JSONParser {
         JSONObject leg_number = legs.get(0);
         JSONObject duration_in_traffic = leg_number.getString("duration_in_traffic");
         return duration_in_traffic.getInt("value");
-
-
     }
 
     /**
@@ -492,7 +443,7 @@ public class JSONParser {
      * return: duration in traffic in seconds.
      */
     public int durationInTraffic(int route) {
-        // TODO: Implement.
+        // TODO: Test.
 
         // User expected to enter values starting from 1.
         // We expect to use it starting from 0.
@@ -504,8 +455,6 @@ public class JSONParser {
         JSONObject leg_number = legs.get(0);
         JSONObject duration_in_traffic = leg_number.getString("duration_in_traffic");
         return duration_in_traffic.getInt("value");
-
-
     }
 
     /**
@@ -517,11 +466,10 @@ public class JSONParser {
      * return: duration in traffic in seconds.
      */
     public int durationInTraffic(int route, int leg) {
-        // TODO: Test
+        // TODO: Test.
 
         // User expected to enter values starting from 1.
         // We expect to use it starting from 0.
-        // Don't we need to parse through each leg??
         route -= 1;
         leg -= 1;
         JSONObject obj = new JSONObject(json);
@@ -531,17 +479,10 @@ public class JSONParser {
         JSONObject leg_number = legs.get(leg);
         JSONObject duration_in_traffic = leg_number.getString("duration_in_traffic");
         return duration_in_traffic.getInt("value");
-
-
     }
+
+    // For distance functions.
     private int getMiles(x) {
-     return x*0.000621371192;
-    } // for distance functions
-
-
-
-
-
-
-
+        return x*0.000621371192;
+    }
 }
