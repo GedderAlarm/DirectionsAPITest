@@ -1,3 +1,8 @@
+/*
+ * USER: mslm, Mike
+ * DATE: March 8th, 2017
+ */
+
 package com.gedder.gedderalarm.util;
 
 import java.util.ArrayList;
@@ -8,14 +13,10 @@ import org.json.JSONException;
 
 import com.gedder.gedderalarm.util.JsonStatus;
 
-/*
- * USER: mslm, Mike
- * DATE: March 8th, 2017
- * Class to parse the JSON received from Google Maps API.
- */
-
 
 /**
+ * Class to parse the JSON received from Google Maps API.
+ *
  * Example usage:
  *
  * public String json = "put json string here";
@@ -37,6 +38,10 @@ public class JsonParser {
     private String json;
     private JSONObject obj;
 
+    /**
+     *
+     * @param json The JSON string to parse.
+     */
     public JsonParser(String json) {
         this.json = json;
 
@@ -49,8 +54,7 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][0]['legs'][0]['duration']['value'].
-     *
-     * return: duration of travel in seconds.
+     * @return duration of travel in seconds.
      */
     public int duration() {
         return duration(0, 0);
@@ -58,7 +62,6 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][route-1]['legs'][0]['duration']['value'].
-     *
      * param[0]: which route, if multiple. Starts from 1.
      * return: duration of travel in seconds.
      */
@@ -68,10 +71,9 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][route-1]['legs'][leg-1]['duration']['value'].
-     *
-     * param[0]: which route, if multiple. Starts from 1.
-     * param[1]: which leg, if multiple. Starts from 1.
-     * return: duration of travel in seconds.
+     * @param route which route, if multiple. Starts from 1.
+     * @param leg which leg, if multiple. Starts from 1.
+     * @return duration of travel in seconds.
      */
     public int duration(int route, int leg) {
         // TODO: Test.
@@ -87,7 +89,7 @@ public class JsonParser {
         JSONObject leg_number;
         JSONObject durationObj;
         int duration = -1;
-        
+
         try {
             routes = obj.getJSONArray("route");
             route_number = routes.getJSONObject(route);
@@ -98,14 +100,13 @@ public class JsonParser {
         } catch (JSONException e) {
             // TODO: Implement.
         }
-        
+
         return duration;
     }
 
     /**
      * Grabs json['routes'][0]['legs'][0]['distance']['value'].
-     *
-     * return: distance of travel in meters.
+     * @return distance of travel in meters.
      */
     public int distance() {
         return distance(0, 0);
@@ -113,9 +114,8 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][route-1]['legs'][0]['distance']['value'].
-     *
-     * param[0]: which route, if multiple. Starts from 1.
-     * return: distance of travel in meters.
+     * @param route which route, if multiple. Starts from 1.
+     * @return  distance of travel in meters.
      */
     public int distance(int route) {
         return distance(route, 0);
@@ -123,10 +123,9 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][route-1]['legs'][leg-1]['distance']['value'].
-     *
-     * param[0]: which route, if multiple. Starts from 1.
-     * param[1]: which leg, if multiple. Starts from 1.
-     * return: distance of travel in meters.
+     * @param route which route, if multiple. Starts from 1.
+     * @param leg which leg, if multiple. Starts from 1.
+     * @return distance of travel in meters.
      */
     public int distance(int route, int leg) {
         // TODO: Test.
@@ -157,9 +156,8 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][0]['legs'][0]['duration_in_traffic']['value'].
-     *
-     * note: only exists if the request specified a traffic model.
-     * return: duration in traffic in seconds.
+     * Only exists if the request specified a traffic model.
+     * @return duration in traffic in seconds.
      */
     public int durationInTraffic() {
         return durationInTraffic(0, 0);
@@ -167,10 +165,9 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][route-1]['legs'][0]['duration_in_traffic']['value'].
-     *
-     * note: only exists if the request specified a traffic model.
-     * param[0]: which route, if multiple. Starts from 1.
-     * return: duration in traffic in seconds.
+     * Only exists if the request specified a traffic model.
+     * @param route which route, if multiple. Starts from 1.
+     * @return duration in traffic in seconds.
      */
     public int durationInTraffic(int route) {
         return durationInTraffic(route, 0);
@@ -178,11 +175,10 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][route-1]['legs'][leg-1]['duration_in_traffic']['value'].
-     *
-     * note: only exists if the request specified a traffic model.
-     * param[0]: which route, if multiple. Starts from 1.
-     * param[1]: which leg, if multiple. Starts from 1.
-     * return: duration in traffic in seconds.
+     * Only exists if the request specified a traffic model.
+     * @param route which route, if multiple. Starts from 1.
+     * @param leg which leg, if multiple. Starts from 1.
+     * @return duration in traffic in seconds.
      */
     public int durationInTraffic(int route, int leg) {
         // TODO: Test.
@@ -216,8 +212,7 @@ public class JsonParser {
     /**
      * Grabs json['routes'][0]['warnings'] elements and puts them
      * in a ArrayList of Strings.
-     *
-     * return: an ArrayList<String> object containing all warnings.
+     * @return an ArrayList<String> object containing all warnings.
      */
     public ArrayList<String> warnings() {
         return warnings(0);
@@ -226,9 +221,8 @@ public class JsonParser {
     /**
      * Grabs json['routes'][route-1]['warnings'] elements and puts them
      * in a ArrayList of Strings.
-     *
-     * param[0]: which route, if multiple. Starts from 1.
-     * return: an ArrayList<String> object containing all warnings.
+     * @param route which route, if multiple. Starts from 1.
+     * @return an ArrayList<String> object containing all warnings.
      */
     public ArrayList<String> warnings(int route) {
         // TODO: Test.
@@ -257,8 +251,7 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][0]['copyrights'].
-     *
-     * return: a String containing the copyright information.
+     * @return a String containing the copyright information.
      */
     public String copyrights() {
         return copyrights(0);
@@ -266,9 +259,8 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][route-1]['copyrights'].
-     *
-     * param[0]: which route, if multiple. Starts from 1.
-     * return: a String containing the copyright information.
+     * @param route which route, if multiple. Starts from 1.
+     * @return a String containing the copyright information.
      */
     public String copyrights(int route) {
         // TODO: Implement.
@@ -294,8 +286,7 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][0]['summary'].
-     *
-     * return: a String containing summary information for the route.
+     * @return a String containing summary information for the route.
      */
     public String summary() {
         return summary(0);
@@ -303,9 +294,8 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][route-1]['summary'].
-     *
-     * param[0]: which route, if multiple. Starts from 1.
-     * return: a String containing summary information for the route.
+     * @param route which route, if multiple. Starts from 1.
+     * @return a String containing summary information for the route.
      */
     public String summary(int route) {
         // TODO: Test.
@@ -331,8 +321,7 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][0]['fare']['currency'].
-     *
-     * return: the ISO 4217 currency code that the fare is expressed in.
+     * @return the ISO 4217 currency code that the fare is expressed in.
      */
     public String fareCurrency() {
         return fareCurrency(0);
@@ -340,9 +329,8 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][route-1]['fare']['currency'].
-     *
-     * param[0]: which route, if multiple. Starts from 1.
-     * return: the ISO 4217 currency code that the fare is expressed in.
+     * @param route which route, if multiple. Starts from 1.
+     * @return the ISO 4217 currency code that the fare is expressed in.
      */
     public String fareCurrency(int route) {
         // TODO: Test.
@@ -370,8 +358,7 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][0]['fare']['value'].
-     *
-     * return: the total fare amount in the currency specified by fareCurrency().
+     * @return the total fare amount in the currency specified by fareCurrency().
      */
     public int fare() {
         return fare(0);
@@ -379,9 +366,8 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][route-1]['fare']['value'].
-     *
-     * param[0]: which route, if multiple. Starts from 1.
-     * return: the total fare amount in the currency specified by fareCurrency().
+     * @param route which route, if multiple. Starts from 1.
+     * @return the total fare amount in the currency specified by fareCurrency().
      */
     public int fare(int route) {
         // TODO: Test.
@@ -409,8 +395,7 @@ public class JsonParser {
 
     /**
      * Grabs json['status'].
-     *
-     * return: status number of the request, corresponding to
+     * @return status number of the request, corresponding to
      *         com.gedder.gedderalarm.util.JSONStatus enumerations.
      */
     public JsonStatus status() {
@@ -460,9 +445,8 @@ public class JsonParser {
 
     /**
      * Grabs json['error_message'].
-     *
-     * note: only exists if json['status'] != "OK".
-     * return: error message string.
+     * Only exists if json['status'] != "OK".
+     * @return error message string.
      */
     public String errorMessage() {
         String error = "";
@@ -478,10 +462,9 @@ public class JsonParser {
 
     /**
      * Grabs json['available_travel_modes'].
-     *
-     * note: only exists if a request specifies a travel mode and gets
-     *       no results.
-     * return: an ArrayList<String> object containing all available
+     * Only exists if a request specifies a travel mode and gets
+     * no results.
+     * @return an ArrayList<String> object containing all available
      *         travel modes.
      */
     public ArrayList<String> availableTravelModes() {
