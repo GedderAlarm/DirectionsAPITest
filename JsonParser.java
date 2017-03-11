@@ -19,14 +19,14 @@ import com.gedder.gedderalarm.util.JSONStatus;
  * Example usage:
  *
  * public String json = "put json string here";
- * public JSONParser jsonParser = new JSONParser(json);
+ * public JsonParser jsonParser = new JsonParser(json);
  * private int duration = jsonParser.duration();
  * private String origin = jsonParser.origin();
  * private String destination = jsonParser.destination();
  * private String route2_origin = jsonParser.origin(2);
  * private String route2_destination = jsonParser.destination(2);
  */
-public class JSONParser {
+public class JsonParser {
     // For mslm:
     // TODO: Add origin() and destination() functionality.
     // TODO: Add originLatitude() and destinationLatitude() functionality.
@@ -36,7 +36,7 @@ public class JSONParser {
 
     private String json;
 
-    public JSONParser(String json) {
+    public JsonParser(String json) {
         this.json = json;
     }
 
