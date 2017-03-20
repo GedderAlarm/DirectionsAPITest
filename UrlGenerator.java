@@ -5,6 +5,10 @@
 
 package com.gedder.gedderalarm.util;
 
+import java.net.URLEncoder;
+
+import com.gedder.gedderalarm.util.except.RequiredParamMissingException;
+
 
 /**
  * Class to generate URLs for Google Maps API.
@@ -20,6 +24,8 @@ package com.gedder.gedderalarm.util;
  *                      .build(); // must call this to get back a Url
  */
 public class UrlGenerator {
+    private static final String TAG = UrlGenerator.class.getSimpleName();
+
     private final String origin;            // required
     private final String destination;       // required
     private final String apiKey;            // required
@@ -118,47 +124,43 @@ public class UrlGenerator {
 
     /**
      *
+     *
      * @return
      */
     public boolean avoidHighways() {
         return avoidHighways;
     }
 
-    private void addOrigin(String origin) {
-        // Needs to abide by Google's naming rules.
-        // TODO: Figure out a way to abide by Google's naming rules
-        //       through possibly using a type other than String.
+    private void addOrigin(String origin)
+        throws RequiredParamMissingException {
         if (origin != null)
             this.url += "origin=" + origin;
         else
-            ; // TODO: Throw exception; this variable is required.
+            throw new RequiredParamMissingException(TAG + "::addOrigin: null input.");
     }
 
-    private void addDestination(String destination) {
-        // Needs to abide by Google's naming rules.
-        // TODO: Figure out a way to abide by Google's naming rules
-        //       through possibly using a type other than String.
+    private void addDestination(String destination) 
+        throws RequiredParamMissingException {
         if (destination != null)
             this.url += "destination=" + destination;
         else
-            ; // TODO: Throw exception; this variable is required.
+            throw new RequiredParamMissingException(TAG + "::addDestination: null input.");
     }
 
-    private void addApiKey(String apiKey) {
+    private void addApiKey(String apiKey)
+        throws RequiredParamMissingException {
         if (apiKey != null)
             this.url += "key=" + apiKey;
         else
-            ; // TODO: Throw exception; this variable is required.
+            throw new RequiredParamMissingException(TAG + "::addApiKey: null input.");
     }
 
     private void addArrivalTime(String arrivalTime) {
-        // TODO: Need to add unix time
         if (arrivalTime != null)
             this.url += "arrival_time=" + arrivalTime;
     }
 
     private void addDepartureTime(String departureTime) {
-        // TODO: Need to add unix time
         if (departureTime != null)
             this.url += "departure_time=" + departureTime;
     }
@@ -179,9 +181,11 @@ public class UrlGenerator {
     }
 
     /**
-     *
+     * Builds a URL and instantiates it with <code>build()</code>.
      */
     public static class UrlBuilder {
+        private static final String SUB_TAG = UrlBuilder.class.getSimpleName();
+
         private final String origin;        // required
         private final String destination;   // required
         private final String apiKey;        // required
@@ -193,6 +197,7 @@ public class UrlGenerator {
 
         /**
          *
+         *
          * @param origin
          * @param destination
          * @param apiKey
@@ -201,44 +206,52 @@ public class UrlGenerator {
             // Needs to abide by Google's naming rules.
             // TODO: Figure out a way to abide by Google's naming rules
             //       through possibly using a type other than String.
-            this.origin = origin;
-            this.destination = destination;
+            this.origin = URLEncoder.encode(origin, "UTF-8");
+            this.destination = URLEncoder.encode(destination, "UTF-8");
             this.apiKey = apiKey;
         }
 
         /**
          *
+         *
          * @param arrivalTime
          * @return
          */
         public UrlBuilder arrivalTime(String arrivalTime) {
-            // TODO: Need to add unix time
-            this.arrivalTime = arrivalTime;
+            // TODO: Need to sanitize time to unix time format.
+            this.arrivalTime = toUnixTime(arrivalTime);
             return this;
         }
 
         /**
+         *
          *
          * @param departureTime
          * @return
          */
         public UrlBuilder departureTime(String departureTime) {
-            // TODO: Need to add unix time
-            this.departureTime = departureTime;
+            // TODO: Need to sanitize time to unix time format.
+            this.departureTime = toUnixTime(departureTime);
             return this;
         }
 
         /**
          *
+         *
          * @param travelMode
          * @return
          */
         public UrlBuilder travelMode(String travelMode) {
+            if (!isAvailableTravelMode(travelMode))
+                throw IllegalArgumentException(
+                    SUB_TAG + "::UrlBuilder::travelMode: travel mode not available.");
+
             this.travelMode = travelMode;
             return this;
         }
 
         /**
+         *
          *
          * @return
          */
@@ -249,6 +262,7 @@ public class UrlGenerator {
 
         /**
          *
+         *
          * @return
          */
         public UrlBuilder avoidHighways() {
@@ -258,9 +272,39 @@ public class UrlGenerator {
 
         /**
          *
+         *
+         * @return A built UrlGenerator class.
          */
         public UrlGenerator build() {
             return new UrlGenerator(this);
+        }
+
+        /**
+         * Turns time into unix time format, appropriate for Google Maps API.
+         *
+         * @param time
+         * @return
+         */
+        private String toUnixTime(String time) {
+            // TODO: Implement.
+            return time;
+        }
+
+        /**
+         * Convenience function to check whether the mode string is valid.
+         *
+         * @param mode The intended mode of travel.
+         * @return whether the intended mode of travel is valid for Google Maps API.
+         */
+        private boolean isAvailableTravelMode(String mode) {
+            if (mode != GoogleApiModes.BUS &&
+                mode != GoogleApiModes.SUBWAY &&
+                mode != GoogleApiModes.TRAIN &&
+                mode != GoogleApiModes.TRAM &&
+                mode != GoogleApiModes.RAIL)
+                return false;
+
+            return true;
         }
     }
 }
