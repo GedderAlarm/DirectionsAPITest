@@ -44,6 +44,7 @@ public class JsonParser {
 
     /**
      *
+     *
      * @param json The JSON string to parse.
      */
     public JsonParser(String json) {
@@ -58,6 +59,7 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][0]['legs'][0]['duration']['value'].
+     *
      * @return duration of travel in seconds.
      */
     public int duration() {
@@ -66,8 +68,9 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][route-1]['legs'][0]['duration']['value'].
-     * param[0]: which route, if multiple. Starts from 1.
-     * return: duration of travel in seconds.
+     *
+     * @param: which route, if multiple. Starts from 1.
+     * @return: duration of travel in seconds.
      */
     public int duration(int route) {
         return duration(route, 1);
@@ -75,13 +78,12 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][route-1]['legs'][leg-1]['duration']['value'].
+     *
      * @param route which route, if multiple. Starts from 1.
      * @param leg which leg, if multiple. Starts from 1.
      * @return duration of travel in seconds.
      */
     public int duration(int route, int leg) {
-        // TODO: Test.
-
         // User expected to enter values starting from 1.
         // We expect to use it starting from 0.
         route -= 1;
@@ -110,6 +112,7 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][0]['legs'][0]['distance']['value'].
+     *
      * @return distance of travel in meters.
      */
     public int distance() {
@@ -118,6 +121,7 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][route-1]['legs'][0]['distance']['value'].
+     *
      * @param route which route, if multiple. Starts from 1.
      * @return  distance of travel in meters.
      */
@@ -127,13 +131,12 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][route-1]['legs'][leg-1]['distance']['value'].
+     *
      * @param route which route, if multiple. Starts from 1.
      * @param leg which leg, if multiple. Starts from 1.
      * @return distance of travel in meters.
      */
     public int distance(int route, int leg) {
-        // TODO: Test.
-
         // User expected to enter values starting from 1.
         // We expect to use it starting from 0.
         route -= 1;
@@ -161,6 +164,7 @@ public class JsonParser {
     /**
      * Grabs json['routes'][0]['legs'][0]['duration_in_traffic']['value'].
      * Only exists if the request specified a traffic model.
+     *
      * @return duration in traffic in seconds.
      */
     public int durationInTraffic() {
@@ -170,6 +174,7 @@ public class JsonParser {
     /**
      * Grabs json['routes'][route-1]['legs'][0]['duration_in_traffic']['value'].
      * Only exists if the request specified a traffic model.
+     *
      * @param route which route, if multiple. Starts from 1.
      * @return duration in traffic in seconds.
      */
@@ -180,13 +185,12 @@ public class JsonParser {
     /**
      * Grabs json['routes'][route-1]['legs'][leg-1]['duration_in_traffic']['value'].
      * Only exists if the request specified a traffic model.
+     *
      * @param route which route, if multiple. Starts from 1.
      * @param leg which leg, if multiple. Starts from 1.
      * @return duration in traffic in seconds.
      */
     public int durationInTraffic(int route, int leg) {
-        // TODO: Test.
-
         // User expected to enter values starting from 1.
         // We expect to use it starting from 0.
         route -= 1;
@@ -216,6 +220,7 @@ public class JsonParser {
     /**
      * Grabs json['routes'][0]['warnings'] elements and puts them
      * in a ArrayList of Strings.
+     *
      * @return an ArrayList<String> object containing all warnings.
      */
     public ArrayList<String> warnings() {
@@ -225,12 +230,11 @@ public class JsonParser {
     /**
      * Grabs json['routes'][route-1]['warnings'] elements and puts them
      * in a ArrayList of Strings.
+     *
      * @param route which route, if multiple. Starts from 1.
      * @return an ArrayList<String> object containing all warnings.
      */
     public ArrayList<String> warnings(int route) {
-        // TODO: Test.
-
         // User expected to enter values starting from 1.
         // We expect to use it starting from 0.
         route -= 1;
@@ -255,6 +259,7 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][0]['copyrights'].
+     *
      * @return a String containing the copyright information.
      */
     public String copyrights() {
@@ -263,12 +268,11 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][route-1]['copyrights'].
+     *
      * @param route which route, if multiple. Starts from 1.
      * @return a String containing the copyright information.
      */
     public String copyrights(int route) {
-        // TODO: Implement.
-
         // User expected to enter values starting from 1.
         // We expect to use it starting from 0.
         route -= 1;
@@ -290,6 +294,7 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][0]['summary'].
+     *
      * @return a String containing summary information for the route.
      */
     public String summary() {
@@ -298,12 +303,11 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][route-1]['summary'].
+     *
      * @param route which route, if multiple. Starts from 1.
      * @return a String containing summary information for the route.
      */
     public String summary(int route) {
-        // TODO: Test.
-
         // User expected to enter values starting from 1.
         // We expect to use it starting from 0.
         route -= 1;
@@ -325,6 +329,7 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][0]['fare']['currency'].
+     *
      * @return the ISO 4217 currency code that the fare is expressed in.
      */
     public String fareCurrency() {
@@ -333,12 +338,11 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][route-1]['fare']['currency'].
+     *
      * @param route which route, if multiple. Starts from 1.
      * @return the ISO 4217 currency code that the fare is expressed in.
      */
     public String fareCurrency(int route) {
-        // TODO: Test.
-
         // User expected to enter values starting from 1.
         // We expect to use it starting from 0.
         route -= 1;
@@ -362,6 +366,7 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][0]['fare']['value'].
+     *
      * @return the total fare amount in the currency specified by fareCurrency().
      */
     public int fare() {
@@ -370,12 +375,11 @@ public class JsonParser {
 
     /**
      * Grabs json['routes'][route-1]['fare']['value'].
+     *
      * @param route which route, if multiple. Starts from 1.
      * @return the total fare amount in the currency specified by fareCurrency().
      */
     public int fare(int route) {
-        // TODO: Test.
-
         // User expected to enter values starting from 1.
         // We expect to use it starting from 0.
         route -= 1;
@@ -399,12 +403,11 @@ public class JsonParser {
 
     /**
      * Grabs json['status'].
+     *
      * @return status number of the request, corresponding to
      *         com.gedder.gedderalarm.util.JSONStatus enumerations.
      */
     public JsonStatus status() {
-        // TODO: Test.
-
         JsonStatus code;
         String status = "";
 
@@ -450,6 +453,7 @@ public class JsonParser {
     /**
      * Grabs json['error_message'].
      * Only exists if json['status'] != "OK".
+     *
      * @return error message string.
      */
     public String errorMessage() {
@@ -468,12 +472,11 @@ public class JsonParser {
      * Grabs json['available_travel_modes'].
      * Only exists if a request specifies a travel mode and gets
      * no results.
+     *
      * @return an ArrayList<String> object containing all available
      *         travel modes.
      */
     public ArrayList<String> availableTravelModes() {
-        // TODO: Test.
-
         JSONArray travel_modes;
         ArrayList<String> modes = new ArrayList<>();
 
