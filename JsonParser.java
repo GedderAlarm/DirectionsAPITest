@@ -12,6 +12,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import com.gedder.gedderalarm.util.JsonStatus;
+import com.gedder.gedderalarm.util.Log;
 
 
 /**
@@ -35,15 +36,15 @@ public class JsonParser {
     // TODO: Add choose-your-step functionality for everything that is in the `steps` key.
     // TODO: Add travelMode() functionality for individual steps.
     // For anyone:
-    // TODO: Add exception handling code. Mostly, that just means print an error log message
-    //       and return an "empty" version of what the function is returning (or -1 for int).
     // TODO: Add an input sanitizing function. It should abide by URL encoding rules. See online.
+
+    private static final String TAG = JsonParser.class.getSimpleName();
 
     private String json;
     private JSONObject obj;
 
     /**
-     *
+     * Initializes JsonParser object using a valid JSON string.
      *
      * @param json The JSON string to parse.
      */
@@ -53,7 +54,9 @@ public class JsonParser {
         try {
             this.obj = new JSONObject(this.json);
         } catch (JSONException e) {
-            // TODO: Implement
+            Log.e(TAG, "Invalid JSON string in constructor " + TAG + "::JsonParser(String).");
+            this.json = "";
+            this.obj = null;
         }
     }
 
@@ -104,7 +107,8 @@ public class JsonParser {
             durationObj = leg_number.getJSONObject("duration");
             duration = durationObj.getInt("value");
         } catch (JSONException e) {
-            // TODO: Implement.
+            Log.e(TAG, "Invalid JSON string in function " + TAG + "::duration.");
+            return -1;
         }
 
         return duration;
@@ -155,7 +159,8 @@ public class JsonParser {
             leg_number = legs.getJSONObject(leg);
             distance = leg_number.getInt("value");
         } catch (JSONException e) {
-            // TODO: Implement.
+            Log.e(TAG, "Invalid JSON string in function " + TAG + "::distance.");
+            return -1;
         }
 
         return distance;
@@ -211,7 +216,8 @@ public class JsonParser {
             duration_in_traffic = leg_number.getJSONObject("duration_in_traffic");
             value = duration_in_traffic.getInt("value");
         } catch (JSONException e) {
-            // TODO: Implement.
+            Log.e(TAG, "Invalid JSON string in function " + TAG + "::durationInTraffic.");
+            return -1;
         }
 
         return value;
@@ -251,7 +257,8 @@ public class JsonParser {
             for (int i = 0; i < warnings.length(); i++)
                 warningsList.add(warnings.getString(i));
         } catch (JSONException e) {
-            // TODO: Implement.
+            Log.e(TAG, "Invalid JSON string in function " + TAG + "::warnings.");
+            return null;
         }
 
         return warningsList;
@@ -286,7 +293,8 @@ public class JsonParser {
             route_number = routes.getJSONObject(route);
             copyrights = route_number.getString("copyrights");
         } catch (JSONException e) {
-            // TODO: Implement.
+            Log.e(TAG, "Invalid JSON string in function " + TAG + "::copyrights.");
+            return null;
         }
 
         return copyrights;
@@ -321,7 +329,8 @@ public class JsonParser {
             route_number = routes.getJSONObject(route);
             summary = route_number.getString("summary");
         } catch (JSONException e) {
-            // TODO: Implement.
+            Log.e(TAG, "Invalid JSON string in function " + TAG + "::summary.");
+            return null;
         }
 
         return summary;
@@ -358,7 +367,8 @@ public class JsonParser {
             fare = route_number.getJSONObject("fare");
             currency = fare.getString("currency");
         } catch (JSONException e) {
-            // TODO: Implement.
+            Log.e(TAG, "Invalid JSON string in function " + TAG + "::fareCurrency.");
+            return null;
         }
 
         return currency;
@@ -378,6 +388,7 @@ public class JsonParser {
      *
      * @param route which route, if multiple. Starts from 1.
      * @return the total fare amount in the currency specified by fareCurrency().
+     *         -1 if there was a JSONException.
      */
     public int fare(int route) {
         // User expected to enter values starting from 1.
@@ -395,7 +406,8 @@ public class JsonParser {
             fareObj = route_number.getJSONObject("fare");
             fare = fareObj.getInt("value");
         } catch (JSONException e) {
-            // TODO: Implement.
+            Log.e(TAG, "Invalid JSON string in function " + TAG + "::fare.");
+            return -1;
         }
 
         return fare;
@@ -414,7 +426,8 @@ public class JsonParser {
         try {
             status = obj.getString("status");
         } catch (JSONException e) {
-            // TODO: Implement.
+            Log.e(TAG, "Invalid JSON string in function " + TAG + "::status.");
+            return null;
         }
 
         switch (status) {
@@ -462,7 +475,8 @@ public class JsonParser {
         try {
             error = obj.getString("error_message");
         } catch (JSONException e) {
-            // TODO: Implement.
+            Log.e(TAG, "Invalid JSON string in function " + TAG + "::errorMessage.");
+            return null;
         }
 
         return error;
@@ -485,7 +499,8 @@ public class JsonParser {
             for (int i = 0; i < travel_modes.length(); i++)
                 modes.add(travel_modes.getString(i));
         } catch (JSONException e) {
-            // TODO: Implement.
+            Log.e(TAG, "Invalid JSON string in function " + TAG + "::availableTravelModes.");
+            return null;
         }
 
         return modes;
