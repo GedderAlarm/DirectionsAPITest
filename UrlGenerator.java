@@ -11,7 +11,7 @@ package com.gedder.gedderalarm.util;
  *
  * Example usage:
  *
- * public Url url = new Url.UrlBuilder("origin", "destination", "apiKey") // required
+ * public UrlGenerator url = new UrlGenerator.UrlBuilder("origin", "destination", "apiKey") // required
  *                      .arrivalTime("arrivalTime")     // optional
  *                      .departureTime("departureTime") // optional
  *                      .travelMode("travelMode")       // optional
@@ -19,7 +19,7 @@ package com.gedder.gedderalarm.util;
  *                      .avoidHighways()                // optional
  *                      .build(); // must call this to get back a Url
  */
-public class Url {
+public class UrlGenerator {
     private final String origin;            // required
     private final String destination;       // required
     private final String apiKey;            // required
@@ -32,7 +32,7 @@ public class Url {
 
     private String url = baseUrl;
 
-    private Url(UrlBuilder builder) {
+    private UrlGenerator(UrlBuilder builder) {
         this.origin = builder.origin;
         this.destination = builder.destination;
         this.apiKey = builder.apiKey;
@@ -259,8 +259,8 @@ public class Url {
         /**
          *
          */
-        public Url build() {
-            return new Url(this);
+        public UrlGenerator build() {
+            return new UrlGenerator(this);
         }
     }
 }
