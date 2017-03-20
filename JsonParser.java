@@ -35,8 +35,6 @@ public class JsonParser {
     // TODO: Add originLongitude() and destinationLongitude() functionality.
     // TODO: Add choose-your-step functionality for everything that is in the `steps` key.
     // TODO: Add travelMode() functionality for individual steps.
-    // For anyone:
-    // TODO: Add an input sanitizing function. It should abide by URL encoding rules. See online.
 
     private static final String TAG = JsonParser.class.getSimpleName();
 

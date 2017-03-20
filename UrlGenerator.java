@@ -5,9 +5,11 @@
 
 package com.gedder.gedderalarm.util;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 import com.gedder.gedderalarm.util.except.RequiredParamMissingException;
+import com.gedder.gedderalarm.util.google.TravelModes;
 
 
 /**
@@ -38,6 +40,11 @@ public class UrlGenerator {
 
     private String url = baseUrl;
 
+    /**
+     *
+     *
+     * @param builder
+     */
     private UrlGenerator(UrlBuilder builder) {
         this.origin = builder.origin;
         this.destination = builder.destination;
@@ -60,6 +67,7 @@ public class UrlGenerator {
 
     /**
      *
+     *
      * @return
      */
     public String getBaseUrl() {
@@ -67,6 +75,7 @@ public class UrlGenerator {
     }
 
     /**
+     *
      *
      * @return
      */
@@ -76,6 +85,7 @@ public class UrlGenerator {
 
     /**
      *
+     *
      * @return
      */
     public String getDestination() {
@@ -83,6 +93,7 @@ public class UrlGenerator {
     }
 
     /**
+     *
      *
      * @return
      */
@@ -92,6 +103,7 @@ public class UrlGenerator {
 
     /**
      *
+     *
      * @return
      */
     public String getArrivalTime() {
@@ -99,6 +111,7 @@ public class UrlGenerator {
     }
 
     /**
+     *
      *
      * @return
      */
@@ -108,6 +121,7 @@ public class UrlGenerator {
 
     /**
      *
+     *
      * @return
      */
     public String getTravelMode() {
@@ -115,6 +129,7 @@ public class UrlGenerator {
     }
 
     /**
+     *
      *
      * @return
      */
@@ -131,50 +146,78 @@ public class UrlGenerator {
         return avoidHighways;
     }
 
-    private void addOrigin(String origin)
-        throws RequiredParamMissingException {
-        if (origin != null)
-            this.url += "origin=" + origin;
-        else
-            throw new RequiredParamMissingException(TAG + "::addOrigin: null input.");
+    /**
+     *
+     *
+     * @param origin
+     */
+    private void addOrigin(String origin) {
+        this.url += "origin=" + origin;
     }
 
-    private void addDestination(String destination) 
-        throws RequiredParamMissingException {
-        if (destination != null)
-            this.url += "destination=" + destination;
-        else
-            throw new RequiredParamMissingException(TAG + "::addDestination: null input.");
+    /**
+     *
+     *
+     * @param destination
+     */
+    private void addDestination(String destination) {
+        this.url += "destination=" + destination;
     }
 
-    private void addApiKey(String apiKey)
-        throws RequiredParamMissingException {
-        if (apiKey != null)
-            this.url += "key=" + apiKey;
-        else
-            throw new RequiredParamMissingException(TAG + "::addApiKey: null input.");
+    /**
+     *
+     *
+     * @param apiKey
+     */
+    private void addApiKey(String apiKey) {
+        this.url += "key=" + apiKey;
     }
 
+    /**
+     *
+     *
+     * @param arrivalTime
+     */
     private void addArrivalTime(String arrivalTime) {
         if (arrivalTime != null)
             this.url += "arrival_time=" + arrivalTime;
     }
 
+    /**
+     *
+     *
+     * @param departureTime
+     */
     private void addDepartureTime(String departureTime) {
         if (departureTime != null)
             this.url += "departure_time=" + departureTime;
     }
 
+    /**
+     *
+     *
+     * @param travelMode
+     */
     private void addTravelMode(String travelMode) {
         if (travelMode != null)
             this.url += "mode=" + travelMode;
     }
 
+    /**
+     *
+     *
+     * @param avoidToll
+     */
     private void addAvoidToll(boolean avoidToll) {
         if (avoidToll)
             this.url += "avoid=tolls";
     }
 
+    /**
+     *
+     *
+     * @param avoidHighways
+     */
     private void addAvoidHighways(boolean avoidHighways) {
         if (avoidHighways)
             this.url += "avoid=highways";
@@ -186,8 +229,8 @@ public class UrlGenerator {
     public static class UrlBuilder {
         private static final String SUB_TAG = UrlBuilder.class.getSimpleName();
 
-        private final String origin;        // required
-        private final String destination;   // required
+        private String origin;              // required
+        private String destination;         // required
         private final String apiKey;        // required
         private String arrivalTime;         // optional
         private String departureTime;       // optional
@@ -196,18 +239,27 @@ public class UrlGenerator {
         private boolean avoidHighways;      // optional
 
         /**
-         *
+         * Initializes required parameters for the URL.
          *
          * @param origin
          * @param destination
          * @param apiKey
+         * @throws RequiredParamMissingException
+         *         Google Maps API required that we have an origin, destination, and API key in the
+         *         HTTP request, at the least.
          */
-        public UrlBuilder(String origin, String destination, String apiKey) {
-            // Needs to abide by Google's naming rules.
-            // TODO: Figure out a way to abide by Google's naming rules
-            //       through possibly using a type other than String.
-            this.origin = URLEncoder.encode(origin, "UTF-8");
-            this.destination = URLEncoder.encode(destination, "UTF-8");
+        public UrlBuilder(String origin, String destination, String apiKey)
+                throws RequiredParamMissingException {
+            if (origin == null || destination == null || apiKey == null)
+                throw new RequiredParamMissingException(SUB_TAG + "::UrlBuilder: null input.");
+
+            try {
+                this.origin = URLEncoder.encode(origin, "UTF-8");
+                this.destination = URLEncoder.encode(destination, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                Log.wtf(SUB_TAG, "UTF-8 is apparently unsupported.");
+            }
+
             this.apiKey = apiKey;
         }
 
@@ -218,7 +270,6 @@ public class UrlGenerator {
          * @return
          */
         public UrlBuilder arrivalTime(String arrivalTime) {
-            // TODO: Need to sanitize time to unix time format.
             this.arrivalTime = toUnixTime(arrivalTime);
             return this;
         }
@@ -230,7 +281,6 @@ public class UrlGenerator {
          * @return
          */
         public UrlBuilder departureTime(String departureTime) {
-            // TODO: Need to sanitize time to unix time format.
             this.departureTime = toUnixTime(departureTime);
             return this;
         }
@@ -243,8 +293,8 @@ public class UrlGenerator {
          */
         public UrlBuilder travelMode(String travelMode) {
             if (!isAvailableTravelMode(travelMode))
-                throw IllegalArgumentException(
-                    SUB_TAG + "::UrlBuilder::travelMode: travel mode not available.");
+                throw new IllegalArgumentException(
+                        SUB_TAG + "::UrlBuilder::travelMode: travel mode not available.");
 
             this.travelMode = travelMode;
             return this;
@@ -297,14 +347,11 @@ public class UrlGenerator {
          * @return whether the intended mode of travel is valid for Google Maps API.
          */
         private boolean isAvailableTravelMode(String mode) {
-            if (mode != GoogleApiModes.BUS &&
-                mode != GoogleApiModes.SUBWAY &&
-                mode != GoogleApiModes.TRAIN &&
-                mode != GoogleApiModes.TRAM &&
-                mode != GoogleApiModes.RAIL)
-                return false;
-
-            return true;
+            return !mode.equals(TravelModes.bus.name())     &&
+                   !mode.equals(TravelModes.subway.name())  &&
+                   !mode.equals(TravelModes.train.name())   &&
+                   !mode.equals(TravelModes.tram.name())    &&
+                   !mode.equals(TravelModes.rail.name());
         }
     }
 }

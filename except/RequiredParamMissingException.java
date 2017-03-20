@@ -10,11 +10,11 @@ package com.gedder.gedderalarm.util.except;
  * Thrown when a certain required parameter is null or some other "missing"-like value.
  */
 public class RequiredParamMissingException extends Exception {
-    public MyNewException() {
+    public RequiredParamMissingException() {
         super();
     }
 
-    public MyNewException(String message) {
+    public RequiredParamMissingException(String message) {
         super(message);
     }
 }
