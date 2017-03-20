@@ -34,6 +34,10 @@ public class JsonParser {
     // TODO: Add originLongitude() and destinationLongitude() functionality.
     // TODO: Add choose-your-step functionality for everything that is in the `steps` key.
     // TODO: Add travelMode() functionality for individual steps.
+    // For anyone:
+    // TODO: Add exception handling code. Mostly, that just means print an error log message
+    //       and return an "empty" version of what the function is returning (or -1 for int).
+    // TODO: Add an input sanitizing function. It should abide by URL encoding rules. See online.
 
     private String json;
     private JSONObject obj;
