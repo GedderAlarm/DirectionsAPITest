@@ -16,7 +16,9 @@ import java.net.URL;
 import android.os.AsyncTask;
 import android.util.Log;
 
-/** Class to request data from Google Maps Directions API
+
+/** 
+ * Class to request data from Google Maps Directions API
  *  Example usage:
  *  In MainActivity.java
  *      // Use urlGenerator class to create/encode url.
@@ -24,19 +26,17 @@ import android.util.Log;
  *      String mainTest = new HTTPRequest().execute(url).get();
  *      JsonParser test = new JsonParser(mainTest);
  */
-
 public class HTTPRequest extends AsyncTask<String, String, String> {
 
     private URL url;
     private HttpURLConnection mUrlConnection = null;
 
     // TEST
-    // MY_KEY: AIzaSyBoo4253wJW0JsshAK90xv8yGnlasVApLw
+    // Need API key. Get your own on the Google Cloud Platform.
     // https://maps.googleapis.com/maps/api/directions/json?origin=Yonkers,NY&destination=Bronx,NY&key=MY_KEY
 
     /**
      * Sends a request to the Google website
-     *
      * @param urlTest url to be sent out
      * @return a string builder of jsonResults
      */
@@ -58,7 +58,6 @@ public class HTTPRequest extends AsyncTask<String, String, String> {
             // Load the results into a StringBuilder
             String line;
             while ((line = rd.readLine()) != null) {
-                //System.out.println(line);
                 jsonResults.append(line);
                 jsonResults.append("\r");
             }
@@ -66,25 +65,23 @@ public class HTTPRequest extends AsyncTask<String, String, String> {
             rd.close();
 
         } catch (MalformedURLException e) {
-            // TODO
+            // TODO: Handle exception.
         } catch (IOException e) {
-            // TODO
+            // TODO: Handle exception.
         } finally {
-            if (mUrlConnection != null) {
+            if (mUrlConnection != null)
                 mUrlConnection.disconnect();
-            }
         }
         return jsonResults.toString();
     }
 
     /**
      * Sets a String to URL, exception is thrown if not an url
-     *
-     * @param url_ url to be sent out
+     * @param url url to be sent out
      */
-    private void setURL(String url_) {
+    private void setURL(String url) {
         try {
-            URL setURL = new URL(url_);
+            URL setURL = new URL(url);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
